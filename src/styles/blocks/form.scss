@@ -1,0 +1,45 @@
+.form {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__field {
+    display: block;
+    width: 200px;
+    height: 24px;
+    margin-bottom: 6px;
+    border-radius: 2px;
+    padding-left: 10px;
+    font-size: 16px;
+  }
+
+  &__submit {
+    display: block;
+    margin-bottom: 6px;
+    width: 200px;
+    height: 24px;
+    border-radius: 2px;
+    background-color: rgb(60, 112, 75);
+    color: white;
+  }
+
+  &__reset {
+    display: block;
+    margin-bottom: 6px;
+    width: 48px;
+    height: 24px;
+    border-radius: 2px;
+    background-color: rgb(116, 70, 70);
+    color: white;
+  }
+
+  &__answer {
+    margin-left: 20px;
+    list-style: none;
+    padding-left: 48px;
+    color: forestgreen;
+    background-color: white;
+    border-radius: 4px;
+  }
+}
