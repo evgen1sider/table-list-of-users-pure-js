@@ -17,7 +17,7 @@ let ifSortByUsername = false;
 let ifSortByEmail = false;
 let ifSortByWebsite = false;
 
-export function appendUsersList(newUser) {
+export function appendUsersList() {
   if (!ifSortByName) {
     sortByNameButton.addEventListener('click', event => {
       event.preventDefault();
@@ -125,21 +125,6 @@ export function appendUsersList(newUser) {
   if (sortBy === '') {
     loadUsers()
       .then(data => {
-        return data.map(user => {
-          createTableRow(user);
-        });
-      })
-      .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.error(error);
-      });
-  }
-
-  if (newUser) {
-    loadUsers()
-      .then(data => {
-        data.push(newUser);
-
         return data.map(user => {
           createTableRow(user);
         });

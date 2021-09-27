@@ -1,26 +1,12 @@
 import { postUser } from '../api/api';
 import { appendUsersList } from './append_users';
 import { User } from './classes';
-import { append, createNode } from './create_elements';
-
-let ifPost = false;
+import { createNode } from './create_elements';
 
 function getUsers() {
-  let user = null;
-
-  if (!ifPost) {
-    user = addNewUser();
-  } else {
-    removeFormAnswer();
-  }
-
-  if (user) {
-    appendUsersList(user);
-  } else {
-    appendUsersList();
-  }
-  // eslint-disable-next-line no-console
-  console.log(user);
+  removeFormAnswer();
+  addNewUser();
+  appendUsersList();
 };
 
 getUsers();
@@ -39,8 +25,6 @@ export function removeFormAnswer() {
     const submit = document.getElementById('add');
 
     submit.setAttribute('disabled', false);
-
-    ifPost = false;
   });
 }
 
@@ -51,8 +35,6 @@ export function addNewUser() {
 
   myForm.addEventListener('submit', (event) => {
     event.preventDefault();
-
-    ifPost = true;
 
     // eslint-disable-next-line no-undef
     const data = new FormData(event.target);
@@ -83,28 +65,24 @@ export function addNewUser() {
     ul.className = 'form__answer';
 
     ul.innerHTML = `
-    <ul>
-      <li>name: ${name}</li>
-      <li>username: ${username}</li>
-      <li>email: ${email}</li>
-      <li>website: ${website}</li>
-      <li>address
-        <address>
-          street: ${newUser.address.street}<br>
-          suite: ${newUser.address.suite}<br>
-          city: ${newUser.address.city}<br>
-          zipcode: ${newUser.address.zipcode}<br>
-        </address>
-      </li>
-      <li>phone: ${newUser.phone}</li>
-    </ul>
+    
   `;
 
-    const submit = document.getElementById('add');
+    // eslint-disable-next-line no-undef
+    alert(`
+      sending new user...
+        name: ${name}
+        username: ${username}
+        email: ${email}
+        website: ${website}
+        phone: ${newUser.phone}
 
-    submit.setAttribute('disabled', true);
-
-    append(myForm, ul);
+        address :
+          street: ${newUser.address.street}
+          suite: ${newUser.address.suite}
+          city: ${newUser.address.city}
+          zipcode: ${newUser.address.zipcode}
+    `);
 
     user = newUser;
     postUser(newUser);
