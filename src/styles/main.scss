@@ -1,7 +1,85 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "./blocks/table";
+@import "./blocks/popup";
+@import "./blocks/headers";
+@import "./blocks/form.scss";
 
+*,
+*:before,
+*:after {
+  padding: 0;
+  padding: 0;
+  border: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html,
 body {
+  height: 100%;
   background: $c-gray;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 18px;
+  line-height: 100%;
+}
+
+body.lock {
+  overflow: hidden;
+}
+
+a {
+  color: rgb(122, 58, 58);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+p {
+  margin: 0px 0px 20px 0px;
+}
+
+.wrapper {
+  overflow: hidden;
+  min-height: 100%;
+}
+
+._container {
+  max-width: 1070px;
+  margin: 0px auto;
+  padding: 0px 15px;
+}
+
+.content {
+  padding: 130px 0px 0px 0px;
+}
+
+.user__form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media ( max-width: 320px) {
+  .large
+  .medium,
+  .tablet {
+    display: none;
+  }
+}
+
+@media ( max-width: 520px) {
+  .large,
+  .medium {
+    display: none;
+  }
+}
+
+@media ( max-width: 720px) {
+  .large {
+    display: none;
+  }
 }
